@@ -1,15 +1,21 @@
 <template>
-  <div v-if="isPokemonFound">
-    <p>{{ foundPokemon.value.name }}</p>
+  <div v-if="existsPoke">
+    <p>{{ getPoke.name }}</p>
+    <img :src="getPoke.sprites.front_default" />
+  </div>
+  <div v-else>
+    <p>Procure um pokemon!</p>
   </div>
 </template>
 <script setup>
 import { computed } from "vue";
 import { pokemonStore } from "@/stores/pokemon";
-const { foundPokemon } = pokemonStore();
-
-const isPokemonFound = computed(() => {
-  return Object.keys(foundPokemon.value) !== 0;
+const store = pokemonStore();
+const getPoke = computed(() => {
+  return store.getPokeInfo;
+});
+const existsPoke = computed(() => {
+  return !(!getPoke.value || Object.keys(getPoke.value).length === 0);
 });
 </script>
 

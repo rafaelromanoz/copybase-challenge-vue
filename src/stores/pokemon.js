@@ -5,7 +5,11 @@ export const pokemonStore = defineStore("pokemon", {
   state: () => ({
     foundPokemon: {},
   }),
-  getters: {},
+  getters: {
+    getPokeInfo(state) {
+      return state.foundPokemon;
+    },
+  },
   actions: {
     async getPokemon(pokemonName) {
       const response = await api.get(`${pokemonName}`);
