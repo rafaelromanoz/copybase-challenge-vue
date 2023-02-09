@@ -1,9 +1,11 @@
 <script setup>
-import PokemonCard from "../components/PokemonCard.vue";
+import SearchPokemon from "../components/SearchPokemon.vue";
+import ListPokemon from "@/components/ListPokemon.vue";
 </script>
 
 <template>
   <main>
-    <PokemonCard />
+    <SearchPokemon />
+    <ListPokemon />
   </main>
 </template>
