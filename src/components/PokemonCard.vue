@@ -1,22 +1,18 @@
 <template>
-  <input v-model="inputedSearch" />
+  <input v-model="pokemonToSearch" />
   <button @click="fetchPokemonApi">Procurar pokemon</button>
 </template>
-
 <script setup>
+import { pokemonStore } from "@/stores/pokemon";
 import { ref } from "vue";
-import useApiPokemon from "../composables/useApiPokemon";
-const { getPokemonByName } = useApiPokemon();
-
-const pokemon = ref({});
-
-const inputedSearch = ref("");
+const { foundPokemon, getPokemon } = pokemonStore();
+const pokemonToSearch = ref("");
 
 const fetchPokemonApi = async () => {
   try {
-    pokemon.value = await getPokemonByName(inputedSearch.value);
+    foundPokemon.value = await getPokemon(pokemonToSearch.value);
   } catch (error) {
-    throw new Error(error);
+    console.error(error);
   }
 };
 </script>
