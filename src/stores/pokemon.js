@@ -49,5 +49,9 @@ export const pokemonStore = defineStore("pokemon", {
       const response = await api.get(formatUrl(data.evolution_chain.url));
       await this.getInfoPokeEvolutions(response.data);
     },
+    resetStateWhenPokemonEvolutionsNotFound() {
+      this.foundPokemonEvolutionChains.first = {};
+      this.foundPokemonEvolutionChains.second = {};
+    },
   },
 });

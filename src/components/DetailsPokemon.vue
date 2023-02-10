@@ -10,13 +10,30 @@
         class="image-card-details"
       />
       <div class="card-content">
+        <h2 style="text-align: center">
+          Nome:
+          <strong>{{
+            capitalizeFirstLetter(getDetailsPokemonEvolutions.name)
+          }}</strong>
+        </h2>
         <p>
-          Nome: <strong>{{ getDetailsPokemonEvolutions.name }}</strong>
+          Peso: <strong>{{ getDetailsPokemonEvolutions.weight }}</strong>
+        </p>
+        <p>
+          Id: <strong>{{ getDetailsPokemonEvolutions.id }}</strong>
+        </p>
+        <p>
+          Altura: <strong>{{ getDetailsPokemonEvolutions.height }}</strong>
+        </p>
+        <p>
+          Experiência base:
+          <strong>{{ getDetailsPokemonEvolutions.base_experience }}</strong>
         </p>
         <p>Habilidades:</p>
         <ul
           v-for="({ ability }, index) in getDetailsPokemonEvolutions.abilities"
           :key="index"
+          class="ul-details"
         >
           <li>{{ ability.name }}</li>
         </ul>
@@ -38,6 +55,7 @@
 import { useRoute } from "vue-router";
 import { pokemonStore } from "@/stores/pokemon";
 import { computed } from "vue";
+import { capitalizeFirstLetter } from "@/utils/functions";
 
 const store = pokemonStore();
 const route = useRoute();
