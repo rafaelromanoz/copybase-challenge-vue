@@ -6,23 +6,36 @@
     </section>
     <section>
       <p>Evoluções</p>
-      <div @click="handleClick(pokeEvolutions.baby.name, 'baby')">
+      <div
+        v-if="getPoke.name !== pokeEvolutions.baby.name"
+        @click="handleClick(pokeEvolutions.baby.name, 'baby')"
+      >
         <p>{{ pokeEvolutions.baby.name }}</p>
         <img
           :src="pokeEvolutions.baby.sprites?.front_default"
           alt="babyEvolutionPokemon"
         />
       </div>
-      <p>{{ pokeEvolutions.first.name }}</p>
-      <img
-        :src="pokeEvolutions.first.sprites?.front_default"
-        alt="firstEvolutionPokemon"
-      />
-      <p>{{ pokeEvolutions.second.name }}</p>
-      <img
-        :src="pokeEvolutions.second.sprites?.front_default"
-        alt="secondEvolutionPokemon"
-      />
+      <div
+        v-if="getPoke.name !== pokeEvolutions.first.name"
+        @click="handleClick(pokeEvolutions.first.name, 'first')"
+      >
+        <p>{{ pokeEvolutions.first.name }}</p>
+        <img
+          :src="pokeEvolutions.first.sprites?.front_default"
+          alt="firstEvolutionPokemon"
+        />
+      </div>
+      <div
+        v-if="getPoke.name !== pokeEvolutions.second.name"
+        @click="handleClick(pokeEvolutions.second.name, 'second')"
+      >
+        <p>{{ pokeEvolutions.second.name }}</p>
+        <img
+          :src="pokeEvolutions.second.sprites?.front_default"
+          alt="secondEvolutionPokemon"
+        />
+      </div>
     </section>
   </div>
   <div v-else>
@@ -33,11 +46,14 @@
 import { computed } from "vue";
 import { useRouter } from "vue-router";
 import { pokemonStore } from "@/stores/pokemon";
+
 const store = pokemonStore();
 const router = useRouter();
+
 const getPoke = computed(() => {
   return store.getPokeInfoSpecie;
 });
+
 const pokeEvolutions = computed(() => {
   return store.getPokeInfoEvolutionChains;
 });
