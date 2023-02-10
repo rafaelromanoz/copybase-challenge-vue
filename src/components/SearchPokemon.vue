@@ -13,7 +13,7 @@ const pokemonToSearch = ref("");
 const fetchPokemonApi = async () => {
   try {
     foundPokemonBySpecie.value = await getPokemonBySpecieAndEvolutionChain(
-      pokemonToSearch.value
+      pokemonToSearch.value.toLowerCase()
     );
   } catch (error) {
     console.error(error);

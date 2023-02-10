@@ -1,40 +1,62 @@
 <template>
   <div v-if="existsPoke">
-    <section>
-      <p>{{ getPoke.name }}</p>
-      <img :src="getPoke.sprites.front_default" alt="foundPokemon" />
+    <h1>Pokémon pesquisado</h1>
+    <section class="card-container">
+      <div class="card">
+        <img :src="getPoke.sprites.front_default" alt="foundPokemon" />
+        <div class="card-content">
+          <h2 class="card-title">{{ getPoke.name }}</h2>
+        </div>
+      </div>
     </section>
-    <section>
-      <p>Evoluções</p>
+    <h1>Evoluções</h1>
+    <section class="card-container">
       <div
-        v-if="getPoke.name !== pokeEvolutions.baby.name"
+        v-if="
+          getPoke.name !== pokeEvolutions.baby.name && pokeEvolutions.baby.name
+        "
         @click="handleClick(pokeEvolutions.baby.name, 'baby')"
+        class="card"
       >
-        <p>{{ pokeEvolutions.baby.name }}</p>
         <img
           :src="pokeEvolutions.baby.sprites?.front_default"
           alt="babyEvolutionPokemon"
         />
+        <div class="card-content">
+          <h2>{{ pokeEvolutions.baby.name }}</h2>
+        </div>
       </div>
       <div
-        v-if="getPoke.name !== pokeEvolutions.first.name"
+        class="card"
+        v-if="
+          getPoke.name !== pokeEvolutions.first.name &&
+          pokeEvolutions.first.name
+        "
         @click="handleClick(pokeEvolutions.first.name, 'first')"
       >
-        <p>{{ pokeEvolutions.first.name }}</p>
         <img
           :src="pokeEvolutions.first.sprites?.front_default"
           alt="firstEvolutionPokemon"
         />
+        <div class="card-content">
+          <h2>{{ pokeEvolutions.first.name }}</h2>
+        </div>
       </div>
       <div
-        v-if="getPoke.name !== pokeEvolutions.second.name"
+        v-if="
+          getPoke.name !== pokeEvolutions.second.name &&
+          pokeEvolutions.second.name
+        "
         @click="handleClick(pokeEvolutions.second.name, 'second')"
+        class="card"
       >
-        <p>{{ pokeEvolutions.second.name }}</p>
         <img
           :src="pokeEvolutions.second.sprites?.front_default"
           alt="secondEvolutionPokemon"
         />
+        <div class="card-content">
+          <h2>{{ pokeEvolutions.second.name }}</h2>
+        </div>
       </div>
     </section>
   </div>
@@ -60,6 +82,14 @@ const pokeEvolutions = computed(() => {
 
 const existsPoke = computed(() => {
   return !(!getPoke.value || Object.keys(getPoke.value).length === 0);
+});
+
+const existsEvolution = computed(() => {
+  return !(
+    !store.getPokeInfoEvolutionChains.first.name &&
+    !store.getPokeInfoEvolutionChains.baby.name &&
+    !!store.getPokeInfoEvolutionChains.first.name
+  );
 });
 
 const handleClick = (pokemonName, pokemonType) => {

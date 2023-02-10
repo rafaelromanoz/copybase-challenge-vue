@@ -1,3 +1,5 @@
+$color-card: linear-gradient(to right top, #2e3192, #0068c7, #009ce8, #00cff9, #1bffff);
+
 main {
   position: absolute;
   top: 50%;
@@ -55,4 +57,35 @@ button {
   }
 }
 
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: center;
+  padding: 20px;
+}
 
+.card {
+  background-image: $color-card;
+  border: 1px solid #333;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px #333;
+  max-width: 300px;
+  padding: 20px;
+  width: 30%;
+  margin: 20px;
+  text-align: center;
+}
+
+.card-title {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.card-content {
+  color: #333;
+  font-size: 18px;
+}
