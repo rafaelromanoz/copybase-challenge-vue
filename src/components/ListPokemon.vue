@@ -6,6 +6,9 @@
         <img :src="getPoke.sprites.front_default" alt="foundPokemon" />
         <div class="card-content">
           <h2 class="card-title">{{ getPoke.name }}</h2>
+          <a class="see-details" @click="handleClick(getPoke.name, 'searched')">
+            Ver detalhes do pokémon
+          </a>
         </div>
       </div>
     </section>
@@ -32,7 +35,6 @@
           getPoke.name !== pokeEvolutions.first.name &&
           pokeEvolutions.first.name
         "
-        @click="handleClick(pokeEvolutions.first.name, 'first')"
       >
         <img
           :src="pokeEvolutions.first.sprites?.front_default"
@@ -40,6 +42,12 @@
         />
         <div class="card-content">
           <h2>{{ pokeEvolutions.first.name }}</h2>
+          <a
+            class="see-details"
+            @click="handleClick(pokeEvolutions.first.name, 'first')"
+          >
+            Ver detalhes do pokémon
+          </a>
         </div>
       </div>
       <div
@@ -56,6 +64,12 @@
         />
         <div class="card-content">
           <h2>{{ pokeEvolutions.second.name }}</h2>
+          <a
+            class="see-details"
+            @click="handleClick(pokeEvolutions.second.name, 'second')"
+          >
+            Ver detalhes do pokémon
+          </a>
         </div>
       </div>
     </section>

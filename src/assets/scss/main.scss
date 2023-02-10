@@ -68,7 +68,7 @@ button {
 }
 
 .card {
-  background-image: $color-card;
+  background-color: white;
   border: 1px solid #333;
   border-radius: 5px;
   box-shadow: 2px 2px 5px #333;
@@ -88,4 +88,9 @@ button {
 .card-content {
   color: #333;
   font-size: 18px;
+}
+
+.see-details {
+  cursor: pointer;
+  color: #009ce8;
 }
