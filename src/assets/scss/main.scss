@@ -2,6 +2,9 @@
 $color-card: linear-gradient(to right top, #2e3192, #0068c7, #009ce8, #00cff9, #1bffff);
 body {
   font-family: 'Roboto', sans-serif;
+  background: linear-gradient(to right, #ffffff, #abbaab);
+
+
 }
 main {
   position: absolute;
@@ -14,12 +17,12 @@ main {
 }
 
 input[type="text"] {
-  width: 250px;
-  height: 50px;
+  width: 180px;
+  height: 25px;
   padding: 15px;
   font-size: 18px;
   font-weight: bold;
-  border-radius: 10px;
+  border-radius: 20px;
   border: none;
   box-shadow: 0 5px 10px #ccc;
   transition: all 0.3s ease-in-out;
@@ -36,14 +39,14 @@ input[type="text"] {
   }
 }
 
-button {
-  width: 200px;
+.search-button {
+  width: 125px;
   height: 50px;
   padding: 15px;
   font-size: 18px;
   font-weight: bold;
-  border-radius: 10px;
-  border: 2px solid #333;
+  border-radius: 20px;
+  border: 2px solid #41167F;
   background-color: #fff;
   color: #333;
   box-shadow: 0 5px 10px #ccc;
@@ -72,7 +75,17 @@ button {
 
 .card {
   background-color: white;
-  border: 1px solid #333;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px #333;
+  max-width: 210px;
+  padding: 20px;
+  width: 30%;
+  margin: 20px;
+  text-align: center;
+}
+
+.card-details {
+  background-color: white;
   border-radius: 5px;
   box-shadow: 2px 2px 5px #333;
   max-width: 300px;

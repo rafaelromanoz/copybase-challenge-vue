@@ -2,7 +2,6 @@ import { defineStore } from "pinia";
 import api from "../config/axios";
 
 const formatUrl = (url) => url.split("/v2/")[1];
-
 export const pokemonStore = defineStore("pokemon", {
   state: () => ({
     foundPokemonBySpecie: {},
@@ -46,6 +45,7 @@ export const pokemonStore = defineStore("pokemon", {
         formatUrl(data.varieties[0]?.pokemon?.url)
       );
       this.foundPokemonBySpecie = pokemonData.data;
+      console.log(data.evolution_chain.url);
       const response = await api.get(formatUrl(data.evolution_chain.url));
       await this.getInfoPokeEvolutions(response.data);
     },

@@ -1,6 +1,6 @@
 <template>
   <input type="text" v-model="pokemonToSearch" />
-  <button @click="fetchPokemonApi">Procurar Pokémon</button>
+  <button class="search-button" v-on:keyup.enter="fetchPokemonApi" @click="fetchPokemonApi">Pesquisar</button>
 </template>
 <script setup>
 import { pokemonStore } from "@/stores/pokemon";
@@ -18,9 +18,9 @@ const fetchPokemonApi = async () => {
       pokemonToSearch.value.toLowerCase()
     );
   } catch (error) {
-    if (error.message === "404") {
-      console.log('entrei aqui');
-      toast.error("Esse pokémon não existe :(");
+    console.error(error);
+    if (!error.request.responseURL.includes("undefined")) {
+      toast.error("Esse pokémon não existe");
     }
   }
 };

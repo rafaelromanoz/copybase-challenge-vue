@@ -1,6 +1,6 @@
 <template>
   <section class="card-container">
-    <div class="card">
+    <div class="card-details">
       <img
         :src="
           getDetailsPokemonEvolutions.sprites?.other?.['official-artwork']

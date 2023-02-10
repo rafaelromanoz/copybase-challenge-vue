@@ -1,6 +1,5 @@
 <template>
   <div v-if="existsPoke">
-    <h1>Pokémon pesquisado</h1>
     <section class="card-container">
       <div class="card">
         <img :src="getPoke.sprites.front_default" alt="foundPokemon" />
