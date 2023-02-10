@@ -7,6 +7,7 @@
             ?.front_default
         "
         alt="pokemonImage"
+        class="image-card-details"
       />
       <div class="card-content">
         <p>
@@ -28,15 +29,6 @@
           <li>{{ type.name }}</li>
         </ul>
         <br />
-<!--        <div-->
-<!--          v-for="(-->
-<!--            { back_default, back_shiny }, index-->
-<!--          ) in getDetailsPokemonEvolutions.sprites"-->
-<!--          :key="index"-->
-<!--        >-->
-<!--          <img :src="back_default" alt="pokeImage" />-->
-<!--          <img :src="back_shiny" alt="pokeImage" />-->
-<!--        </div>-->
       </div>
     </div>
   </section>
@@ -51,6 +43,9 @@ const store = pokemonStore();
 const route = useRoute();
 
 const getDetailsPokemonEvolutions = computed(() => {
+  if (route.params.pokemonType === "searched") {
+    return store.getPokeInfoSpecie;
+  }
   return store.getPokeInfoEvolutionChains[route.params.pokemonType];
 });
 </script>

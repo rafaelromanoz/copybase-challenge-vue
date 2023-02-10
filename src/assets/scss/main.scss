@@ -99,5 +99,21 @@ button {
 }
 
 .image-card-details {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+@media (max-width: 720px) {
+  .card {
+    width: 90%;
+    height: auto;
+  }
+
+  .image-card-details {
+    height: 200px;
+  }
 }
