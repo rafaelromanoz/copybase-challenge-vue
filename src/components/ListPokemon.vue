@@ -27,6 +27,12 @@
         />
         <div class="card-content">
           <h2>{{ pokeEvolutions.baby.name }}</h2>
+          <a
+            class="see-details"
+            @click="handleClick(pokeEvolutions.baby.name, 'second')"
+          >
+            Ver detalhes do pokémon
+          </a>
         </div>
       </div>
       <div
@@ -55,7 +61,6 @@
           getPoke.name !== pokeEvolutions.second.name &&
           pokeEvolutions.second.name
         "
-        @click="handleClick(pokeEvolutions.second.name, 'second')"
         class="card"
       >
         <img
