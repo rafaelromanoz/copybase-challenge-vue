@@ -13,7 +13,7 @@
       </div>
     </section>
     <h1>Evoluções</h1>
-    <section class="card-container">
+    <section class="card-container" v-if="existsEvolution">
       <div
         v-if="
           getPoke.name !== pokeEvolutions.baby.name && pokeEvolutions.baby.name
@@ -78,6 +78,7 @@
         </div>
       </div>
     </section>
+    <p v-else>Esse pokemon não tem evoluções</p>
   </div>
   <div v-else>
     <p>Procure um pokemon!</p>
@@ -104,11 +105,9 @@ const existsPoke = computed(() => {
 });
 
 const existsEvolution = computed(() => {
-  return !(
-    !store.getPokeInfoEvolutionChains.first.name &&
-    !store.getPokeInfoEvolutionChains.baby.name &&
-    !!store.getPokeInfoEvolutionChains.first.name
-  );
+  return !(Object.keys(store.getPokeInfoEvolutionChains.baby).length === 0 &&
+    Object.keys(store.getPokeInfoEvolutionChains.first).length === 0 &&
+    Object.keys(store.getPokeInfoEvolutionChains.second).length === 0);
 });
 
 const handleClick = (pokemonName, pokemonType) => {
