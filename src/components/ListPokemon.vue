@@ -18,7 +18,6 @@
         v-if="
           getPoke.name !== pokeEvolutions.baby.name && pokeEvolutions.baby.name
         "
-        @click="handleClick(pokeEvolutions.baby.name, 'baby')"
         class="card"
       >
         <img
@@ -29,7 +28,7 @@
           <h2>{{ pokeEvolutions.baby.name }}</h2>
           <a
             class="see-details"
-            @click="handleClick(pokeEvolutions.baby.name, 'second')"
+            @click="handleClick(pokeEvolutions.baby.name, 'baby')"
           >
             Ver detalhes do pokémon
           </a>
@@ -105,9 +104,11 @@ const existsPoke = computed(() => {
 });
 
 const existsEvolution = computed(() => {
-  return !(Object.keys(store.getPokeInfoEvolutionChains.baby).length === 0 &&
+  return !(
+    Object.keys(store.getPokeInfoEvolutionChains.baby).length === 0 &&
     Object.keys(store.getPokeInfoEvolutionChains.first).length === 0 &&
-    Object.keys(store.getPokeInfoEvolutionChains.second).length === 0);
+    Object.keys(store.getPokeInfoEvolutionChains.second).length === 0
+  );
 });
 
 const handleClick = (pokemonName, pokemonType) => {
