@@ -14,7 +14,10 @@
       alt="firstEvolutionPokemon"
     />
     <p>{{ pokeEvolutions.second.name }}</p>
-    <img :src="pokeEvolutions.second.sprites.front_default" alt="secondEvolutionPokemon" />
+    <img
+      :src="pokeEvolutions.second.sprites.front_default"
+      alt="secondEvolutionPokemon"
+    />
   </div>
   <div v-else>
     <p>Procure um pokemon!</p>
