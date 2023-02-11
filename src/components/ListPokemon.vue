@@ -2,7 +2,7 @@
   <div v-if="existsPoke">
     <section class="card-container">
       <div class="card">
-        <img :src="getPoke.sprites.front_default" alt="foundPokemon" />
+        <img :src="getPoke.sprites.front_default" alt="foundPokemon"/>
         <div class="card-content">
           <h2 class="card-title">{{ capitalizeFirstLetter(getPoke.name) }}</h2>
           <a class="see-details" @click="handleClick(getPoke.name, 'searched')">
@@ -14,10 +14,10 @@
     <h1 style="text-align: center">Evoluções</h1>
     <section class="card-container" v-if="existsEvolution">
       <div
+        class="card"
         v-if="
           getPoke.name !== pokeEvolutions.baby.name && pokeEvolutions.baby.name
         "
-        class="card"
       >
         <img
           :src="pokeEvolutions.baby.sprites?.front_default"
@@ -55,11 +55,11 @@
         </div>
       </div>
       <div
+        class="card"
         v-if="
           getPoke.name !== pokeEvolutions.second.name &&
           pokeEvolutions.second.name
         "
-        class="card"
       >
         <img
           :src="pokeEvolutions.second.sprites?.front_default"
@@ -76,10 +76,10 @@
         </div>
       </div>
     </section>
-    <p v-else>Esse pokemon não tem evoluções</p>
+    <p v-else style="text-align: center">Esse pokémon não tem evoluções</p>
   </div>
   <div v-else>
-    <p>Procure um pokemon!</p>
+    <p style="text-align: center">Procure um pokémon!</p>
   </div>
 </template>
 <script setup>
