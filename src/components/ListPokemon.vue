@@ -11,7 +11,7 @@
         </div>
       </div>
     </section>
-    <h1>Evoluções</h1>
+    <h1 style="text-align: center">Evoluções</h1>
     <section class="card-container" v-if="existsEvolution">
       <div
         v-if="

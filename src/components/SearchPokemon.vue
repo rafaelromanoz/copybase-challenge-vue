@@ -1,11 +1,13 @@
 <template>
-  <input
-    type="text"
-    v-model="pokemonToSearch"
-    v-on:keyup.enter="fetchPokemonApi"
-    placeholder="Nome do pokémon"
-  />
-  <button class="search-button" @click="fetchPokemonApi">Pesquisar</button>
+  <div class="search-container">
+    <input
+      type="text"
+      v-model="pokemonToSearch"
+      v-on:keyup.enter="fetchPokemonApi"
+      placeholder="Nome do pokémon"
+    />
+    <button class="search-button" @click="fetchPokemonApi">Pesquisar</button>
+  </div>
 </template>
 <script setup>
 import { pokemonStore } from "@/stores/pokemon";
