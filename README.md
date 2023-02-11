@@ -1,6 +1,8 @@
 # challenge-copybase
 
-This template should help get you started developing with Vue 3 in Vite.
+Projeto de construção de uma Pokédex utilizando Vue e boas práticas de programação.
+
+Foi utilizado Pinia para gerenciamento de estado da aplicação e vue router para navegar entre páginas.
 
 ## Recommended IDE Setup
 
